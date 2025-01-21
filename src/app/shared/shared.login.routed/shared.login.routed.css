@@ -1,32 +1,22 @@
-/* Estilos generales para el body */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #222222;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;  /* Centrado horizontal */
-    align-items: center;      /* Centrado vertical */
-    height: 100vh;
-    box-sizing: border-box;
-}
+
 
 /* Contenedor del formulario */
 .login-container {
-    background-color: #333;
+    background-color: #bebebe;
     padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(70, 70, 70, 0.4);
     width: 100%;
     max-width: 400px; /* Limita el ancho máximo a 400px */
     text-align: center;
     box-sizing: border-box;  /* Asegura que el padding no afecte el tamaño total */
+    margin-left: auto;
+margin-right: auto;
 }
 
 /* Título del formulario */
 h2 {
-    font-size: 28px;
-    color: #ffffff;
+    font-size: 28px;    
     margin-bottom: 30px;
     font-weight: 600;
 }
@@ -50,24 +40,21 @@ h2 {
     padding: 12px;
     font-size: 16px;
     border: 1px solid #555;
-    border-radius: 8px;
-    background-color: #444;
-    color: #fff;
+    
+    background-color: #ffffff;
+    color: #333;
     margin-top: 5px;
     outline: none;
     transition: border-color 0.3s, background-color 0.3s;
 }
 
-.input-group input:focus {
-    border-color: #66ccff;
-    background-color: #333;
-}
 
 /* Estilo para el botón de submit */
 .login-btn {
+    margin-top: 25px;
     width: 100%;
     padding: 14px;
-    background-color: #66ccff;
+    background-color: #005507;
     color: white;
     font-size: 16px;
     border: none;
@@ -78,7 +65,7 @@ h2 {
 }
 
 .login-btn:hover {
-    background-color: #3399cc;
+    background-color: #005c8a;
 }
 
 /* Estilo para el mensaje de error */
