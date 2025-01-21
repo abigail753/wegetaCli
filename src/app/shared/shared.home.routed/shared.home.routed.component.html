@@ -1,21 +1,11 @@
-<!-- admin.login.component.html -->
-<div class="login-container">
-  <h2>Iniciar sesión</h2>
-  <!-- Formulario de inicio de sesión -->
-  <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
-      <div class="input-group">
-          <label for="email">Correo electrónico</label>
-          <input type="email" id="email" name="email" ngModel required placeholder="Ingresa tu correo">
-      </div>
-      <div class="input-group">
-          <label for="password">Contraseña</label>
-          <input type="password" id="password" name="password" ngModel required placeholder="Ingresa tu contraseña">
-      </div>
-      <button type="submit" class="login-btn">Iniciar sesión</button>
-  </form>
-  
-  <!-- Mensaje de error -->
-  <div class="error-message" *ngIf="errorMessage">
-      {{ errorMessage }}
+<div class="container d-flex align-items-center flex-column mt-5">
+    <!-- Masthead Avatar Image-->
+    <img class="mb-5" src="img/report-svgrepo-com.svg" width="200" alt="logo">
+
+    <h1 class="masthead-heading text-uppercase mb-0">WEJETA</h1>
+    <p class="masthead-subheading font-weight-light mb-0">autenticación</p>
+    <p class="masthead-subheading font-weight-light mb-0">control de la [sesión] con roles</p>
   </div>
-</div>
+
+
+
