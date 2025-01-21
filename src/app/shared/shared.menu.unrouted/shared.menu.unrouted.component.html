@@ -16,11 +16,17 @@
           <a class="nav-link" [class.active]="strRuta == '/admin/usuario/plist'"
             href="/admin/usuario/plist">Usuarios</a>
         </li>
-        
+
       </ul>
+      @if(!activeSession){
       <span class="navbar-text">
         <a href="/login" class="btn btn-outline-primary">Iniciar Sesión</a>
       </span>
+      } @else {
+      <span class="navbar-text">
+        <a href="/logout" class="btn btn-outline-primary">Logout</a>
+      </span>
+      }
 
     </div>
   </div>

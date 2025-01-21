@@ -43,10 +43,13 @@ export class SharedLoginRoutedComponent implements OnInit {
 
           this.oSessionService.setToken(token);
 
-          let parsedToken: IJwt;
-          parsedToken = this.oSessionService.parseJwt(token);
 
-          console.log('Token parseado:', parsedToken);
+          this.oSessionService.login();
+
+
+          //let parsedToken: IJwt;
+          //parsedToken = this.oSessionService.parseJwt(token);
+          //console.log('Token parseado:', parsedToken);
 
 
           // Redirige al usuario a la página principal, por ejemplo
