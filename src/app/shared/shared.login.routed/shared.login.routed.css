@@ -11,7 +11,7 @@
     text-align: center;
     box-sizing: border-box;  /* Asegura que el padding no afecte el tamaño total */
     margin-left: auto;
-margin-right: auto;
+    margin-right: auto;
 }
 
 /* Título del formulario */
