@@ -22,6 +22,7 @@ export class SharedMenuUnroutedComponent implements OnInit {
         this.strRuta = oEvent.url;
       }
     });
+    this.activeSession = this.oSessionService.isSessionActive();
   }
 
   ngOnInit() {

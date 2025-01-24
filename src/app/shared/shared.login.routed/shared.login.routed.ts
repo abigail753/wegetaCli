@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from '../../service/login.service';
 import { SessionService } from '../../service/session.service';
 import { IJwt } from '../../model/jwt.interface';
@@ -24,8 +24,9 @@ export class SharedLoginRoutedComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private oLoginService: LoginService,
-    private oSessionService: SessionService
-  ) { }
+    private oSessionService: SessionService,
+    private oRouter: Router
+  ) {  }
 
   ngOnInit(): void { }
 
@@ -45,6 +46,7 @@ export class SharedLoginRoutedComponent implements OnInit {
 
 
           this.oSessionService.login();
+          this.oRouter.navigate(['/']);
 
 
           //let parsedToken: IJwt;
