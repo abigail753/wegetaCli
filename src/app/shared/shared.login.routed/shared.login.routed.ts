@@ -41,13 +41,8 @@ export class SharedLoginRoutedComponent implements OnInit {
           console.log('Token recibido:', token);
           alert('Inicio de sesión exitoso');
 
-
-          this.oSessionService.setToken(token);
-
-
-          this.oSessionService.login();
+          this.oSessionService.login(token);
           this.oRouter.navigate(['/']);
-
 
           //let parsedToken: IJwt;
           //parsedToken = this.oSessionService.parseJwt(token);

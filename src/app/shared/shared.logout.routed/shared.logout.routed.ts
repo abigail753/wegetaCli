@@ -32,8 +32,7 @@ export class SharedLogoutRoutedComponent implements OnInit {
 
  
   onLogout() {
-    this.oSessionService.logout();
-    this.oSessionService.deleteToken();
+    this.oSessionService.logout();    
     this.oRouter.navigate(['/']);
   }
 

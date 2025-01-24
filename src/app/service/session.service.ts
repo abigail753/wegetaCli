@@ -12,15 +12,11 @@ export class SessionService {
     subjectLogin: Subject<void> = new Subject<void>();
     subjectLogout: Subject<void> = new Subject<void>();
 
-    setToken(strToken: string): void {
-        localStorage.setItem('token', strToken);
-    }
-
     private getToken(): string | null {
         return localStorage.getItem('token');
     }
 
-    deleteToken(): void {
+    private deleteToken(): void {
         localStorage.removeItem('token');
     }
 
@@ -74,11 +70,17 @@ export class SessionService {
         return this.subjectLogout;
     }
 
-    login(): void {
+    private setToken(strToken: string): void {
+        localStorage.setItem('token', strToken);
+    }
+
+    login(strToken: string): void {
+        this.setToken(strToken);
         this.subjectLogin.next();
     }
 
     logout(): void {
+        this.deleteToken();
         this.subjectLogout.next();
     }
 
