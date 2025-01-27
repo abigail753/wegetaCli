@@ -11,12 +11,13 @@ import { SharedLogoutRoutedComponent } from './shared/shared.logout.routed/share
 import { SharedByemailRoutedComponent } from './shared/shared.byemail.routed/shared.byemail.routed.component';
 import { ContableGuard } from './guards/contable.guard';
 import { AdminGuard } from './guards/admin.guard';
+import { AdminOrContableGuard } from './guards/admin-or-contable.guard';
 
 
 export const routes: Routes = [
 
-    { path: '', component: SharedHomeRoutedComponent },
-    { path: 'home', component: SharedHomeRoutedComponent },
+    { path: '', component: SharedHomeRoutedComponent, canActivate: [AdminOrContableGuard] },
+    { path: 'home', component: SharedHomeRoutedComponent, canActivate: [AdminOrContableGuard] },
     { path: 'login', component: SharedLoginRoutedComponent },
     { path: 'logout', component: SharedLogoutRoutedComponent },
     { path: 'byemail/:email', component: SharedByemailRoutedComponent, canActivate: [ContableGuard] },
