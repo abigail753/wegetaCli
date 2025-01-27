@@ -8,6 +8,7 @@ import { SharedHomeRoutedComponent } from './shared/shared.home.routed/shared.ho
 import { UsuarioCreateComponent } from './components/usuario/usuario.create/usuario.create.component';
 import { SharedLoginRoutedComponent } from './shared/shared.login.routed/shared.login.routed';
 import { SharedLogoutRoutedComponent } from './shared/shared.logout.routed/shared.logout.routed';
+import { SharedByemailRoutedComponent } from './shared/shared.byemail.routed/shared.byemail.routed.component';
 
 
 export const routes: Routes = [
@@ -16,6 +17,7 @@ export const routes: Routes = [
     { path: 'home', component: SharedHomeRoutedComponent },
     { path: 'login', component: SharedLoginRoutedComponent },
     {path: 'logout', component: SharedLogoutRoutedComponent},
+    { path: 'byemail/:email', component: SharedByemailRoutedComponent },
 
 
     { path: 'admin/usuario/plist', component: UsuarioPlistComponent},
