@@ -29,7 +29,7 @@ export class ContableGuard implements CanActivate {
                 }
             });
 
-            return true;
+            return false;
 
         } else {
             return false;
