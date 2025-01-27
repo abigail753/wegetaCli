@@ -72,6 +72,13 @@ getOne(id: number): Observable<IUsuario> {
   return this.oHttp.get<IUsuario>(URL);
 }
 
+getUsuarioByEmail(email: string): Observable<IUsuario> {
+  let URL: string = '';
+  URL += this.serverURL + '/byemail';
+  URL += '/' + email;
+  return this.oHttp.get<IUsuario>(URL);
+}
+
 delete(id: number) {
   return this.oHttp.delete(this.serverURL + '/' + id);
 }
