@@ -9,6 +9,7 @@ import { UsuarioCreateComponent } from './components/usuario/usuario.create/usua
 import { SharedLoginRoutedComponent } from './shared/shared.login.routed/shared.login.routed';
 import { SharedLogoutRoutedComponent } from './shared/shared.logout.routed/shared.logout.routed';
 import { SharedByemailRoutedComponent } from './shared/shared.byemail.routed/shared.byemail.routed.component';
+import { ContableGuard } from './guards/contable.guard';
 
 
 export const routes: Routes = [
@@ -17,10 +18,10 @@ export const routes: Routes = [
     { path: 'home', component: SharedHomeRoutedComponent },
     { path: 'login', component: SharedLoginRoutedComponent },
     {path: 'logout', component: SharedLogoutRoutedComponent},
-    { path: 'byemail/:email', component: SharedByemailRoutedComponent },
+    { path: 'byemail/:email', component: SharedByemailRoutedComponent, canActivate: [ContableGuard] },
 
 
-    { path: 'admin/usuario/plist', component: UsuarioPlistComponent},
+    { path: 'admin/usuario/plist', component: UsuarioPlistComponent },
     { path: 'admin/usuario/edit/:id', component: UsuarioEditComponent, },
     { path: 'admin/usuario/view/:id', component: UsuarioViewComponent, },
     { path: 'admin/usuario/create', component: UsuarioCreateComponent, pathMatch: 'full', },

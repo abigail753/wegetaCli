@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
 import { IJwt } from "../model/jwt.interface";
 import { Subject } from "rxjs";
 
@@ -7,7 +7,7 @@ import { Subject } from "rxjs";
     providedIn: 'root'
 })
 
-export class SessionService {
+export class SessionService {    
 
     subjectLogin: Subject<void> = new Subject<void>();
     subjectLogout: Subject<void> = new Subject<void>();
