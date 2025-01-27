@@ -28,7 +28,7 @@ export class SharedLoginRoutedComponent implements OnInit {
     private oLoginService: LoginService,
     private oSessionService: SessionService,
     private oRouter: Router
-  ) {  
+  ) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(8)])
@@ -61,26 +61,25 @@ export class SharedLoginRoutedComponent implements OnInit {
       });
     }
   }
-  
 
-  onAdmin(){
+  onAdmin() {
     this.loginForm.setValue({
       email: 'emailRosa3517@gmail.com',
       password: '3e5a1bdf4ff6d0356dabc6dafc94626602269bc9576de79a3ecab591398745b8'
     });
   }
 
-  onAuditor(){
+  onContable() {
     this.loginForm.setValue({
-      email: 'emailRosa3517@gmail.com',
-      password: '3e5a1bdf4ff6d0356dabc6dafc94626602269bc9576de79a3ecab591398745b8'
+      email: 'emailRafa2149@gmail.com',
+      password: 'ea009a4c247f482bba05884f5f717ec7cdc7ab7c6f3d73c8d8870e5e1d742ebb'
     });
   }
 
-  onContable(){
+  onAuditor() {
     this.loginForm.setValue({
-      email: 'emailRosa3517@gmail.com',
-      password: '3e5a1bdf4ff6d0356dabc6dafc94626602269bc9576de79a3ecab591398745b8'
+      email: 'emailIgnacio8900@gmail.com',
+      password: 'ec24c54f23e434f872989a88d9d1cf2323358224aebf2eacfcc348503a73226c'
     });
   }
 
