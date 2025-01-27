@@ -10,22 +10,23 @@ import { SharedLoginRoutedComponent } from './shared/shared.login.routed/shared.
 import { SharedLogoutRoutedComponent } from './shared/shared.logout.routed/shared.logout.routed';
 import { SharedByemailRoutedComponent } from './shared/shared.byemail.routed/shared.byemail.routed.component';
 import { ContableGuard } from './guards/contable.guard';
+import { AdminGuard } from './guards/admin.guard';
 
 
 export const routes: Routes = [
-    
+
     { path: '', component: SharedHomeRoutedComponent },
     { path: 'home', component: SharedHomeRoutedComponent },
     { path: 'login', component: SharedLoginRoutedComponent },
-    {path: 'logout', component: SharedLogoutRoutedComponent},
+    { path: 'logout', component: SharedLogoutRoutedComponent },
     { path: 'byemail/:email', component: SharedByemailRoutedComponent, canActivate: [ContableGuard] },
 
 
-    { path: 'admin/usuario/plist', component: UsuarioPlistComponent },
-    { path: 'admin/usuario/edit/:id', component: UsuarioEditComponent, },
-    { path: 'admin/usuario/view/:id', component: UsuarioViewComponent, },
-    { path: 'admin/usuario/create', component: UsuarioCreateComponent, pathMatch: 'full', },
-    { path: 'admin/usuario/delete/:id', component: UsuarioDeleteComponent, },
+    { path: 'admin/usuario/plist', component: UsuarioPlistComponent, canActivate: [AdminGuard] },
+    { path: 'admin/usuario/edit/:id', component: UsuarioEditComponent, canActivate: [AdminGuard] },
+    { path: 'admin/usuario/view/:id', component: UsuarioViewComponent, canActivate: [AdminGuard] },
+    { path: 'admin/usuario/create', component: UsuarioCreateComponent, canActivate: [AdminGuard] },
+    { path: 'admin/usuario/delete/:id', component: UsuarioDeleteComponent, canActivate: [AdminGuard] },
 
 
 

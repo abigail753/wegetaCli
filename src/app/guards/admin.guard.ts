@@ -9,7 +9,7 @@ import { map, Observable } from "rxjs";
     providedIn: 'root'
 })
 
-export class ContableGuard implements CanActivate {
+export class AdminGuard implements CanActivate {
 
     constructor(private oSessionService: SessionService,
         private oUsuarioService: UsuarioService,
@@ -21,7 +21,7 @@ export class ContableGuard implements CanActivate {
             // llamar al servidor para obtener el rol del usuario
             return this.oUsuarioService.getUsuarioByEmail(email).pipe(
                 map((data: IUsuario) => {
-                    if (data.tipousuario.descripcion === 'Contable') {
+                    if (data.tipousuario.descripcion === 'Administrador') {
                         return true;
                     } else {
                         this.oRouter.navigate(['/login']);
@@ -39,9 +39,3 @@ export class ContableGuard implements CanActivate {
     }
 
 }
-
-
-
-
-
-
