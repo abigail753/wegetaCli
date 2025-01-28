@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Form, FormControl, FormGroup, FormsModule, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginService } from '../../service/login.service';
 import { SessionService } from '../../service/session.service';
-import { IJwt } from '../../model/jwt.interface';
+import { CryptoService } from '../../service/crypto.service';
 
 @Component({
   selector: 'app-login',
@@ -27,11 +27,12 @@ export class SharedLoginRoutedComponent implements OnInit {
   constructor(
     private oLoginService: LoginService,
     private oSessionService: SessionService,
-    private oRouter: Router
+    private oRouter: Router,
+    private oCryptoService: CryptoService
   ) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(8)])
+      password: new FormControl('', [Validators.required, Validators.minLength(5)])
     });
 
 
@@ -41,7 +42,8 @@ export class SharedLoginRoutedComponent implements OnInit {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      this.oLoginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
+      const hashedPassword = this.oCryptoService.getHashSHA256(this.loginForm.value.password);
+      this.oLoginService.login(this.loginForm.value.email, hashedPassword).subscribe({
         next: (token: string) => {
           console.log('Token recibido:', token);
           alert('Inicio de sesión exitoso');
@@ -65,21 +67,21 @@ export class SharedLoginRoutedComponent implements OnInit {
   onAdmin() {
     this.loginForm.setValue({
       email: 'emailRosa3517@gmail.com',
-      password: '3e5a1bdf4ff6d0356dabc6dafc94626602269bc9576de79a3ecab591398745b8'
+      password: 'ausias'
     });
   }
 
   onContable() {
     this.loginForm.setValue({
       email: 'emailRafa2149@gmail.com',
-      password: 'ea009a4c247f482bba05884f5f717ec7cdc7ab7c6f3d73c8d8870e5e1d742ebb'
+      password: 'ausias'
     });
   }
 
   onAuditor() {
     this.loginForm.setValue({
       email: 'emailIgnacio8900@gmail.com',
-      password: 'ec24c54f23e434f872989a88d9d1cf2323358224aebf2eacfcc348503a73226c'
+      password: 'ausias'
     });
   }
 
