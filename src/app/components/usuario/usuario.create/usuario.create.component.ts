@@ -16,6 +16,7 @@ import { ITipoUsuario } from '../../../model/tipoUsuario.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpErrorResponse } from '@angular/common/http';
 import { TipoUsuarioService } from '../../../service/tipousuario.service';
+import { CryptoService } from '../../../service/crypto.service';
 
 
 declare let bootstrap: any;
@@ -51,7 +52,8 @@ export class UsuarioCreateComponent implements OnInit {
   constructor(
     private oUsuarioService: UsuarioService,
     private oRouter: Router,
-    private oTipoUsuarioService: TipoUsuarioService
+    private oTipoUsuarioService: TipoUsuarioService,
+    private oCryptoService: CryptoService
   
   ) {}
 
@@ -144,7 +146,13 @@ export class UsuarioCreateComponent implements OnInit {
     if (this.oUsuarioForm?.invalid) {
       this.showModal('Formulario inválido');
       return;
-    } else {      
+    } else {  
+      // Hashear la contraseña antes de enviarla al servidor
+    const hashedPassword = this.oCryptoService.getHashSHA256(this.oUsuarioForm?.value.password);
+
+    // Actualizar el valor de la contraseña en el formulario con la contraseña hasheada
+    this.oUsuarioForm?.controls['password'].setValue(hashedPassword);
+
       this.oUsuarioService.create(this.oUsuarioForm?.value).subscribe({
         next: (oUsuario: IUsuario) => {
           this.oUsuario = oUsuario;
